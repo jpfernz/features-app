@@ -4,6 +4,11 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
+// src/styles/typography/_config.scss
+$heading-font-family: "'Poppins', sans-serif";
+// $regular-font-family: "'Inter', sans-serif";
+$regular-font-family: "'Poppins', sans-serif";
+
 // Note: Color palettes are generated from primary: #219c90, secondary: #fff455, tertiary: #ffc700, neutral: #ee4e4e
 $_palettes: (
   primary: (
@@ -128,7 +133,9 @@ $_palettes: (
 
 $_rest: (
   secondary: map.get($_palettes, secondary),
-  neutral: map.get($_palettes, neutral),
+  // neutral: map.get($_palettes, neutral),
+  // TODO: how to switch up the neutral color?
+  neutral: map.get($_palettes, neutral-variant),
   neutral-variant: map.get($_palettes, neutral-variant),
   error: map.get($_palettes, error),
 );
@@ -142,6 +149,13 @@ $light-theme: mat.define-theme(
       primary: $_primary,
       tertiary: $_tertiary,
     ),
+    typography: (
+      plain-family: $regular-font-family,
+      brand-family: $heading-font-family,
+      bold-weight: $heading-font-family,
+      medium-weight: $heading-font-family,
+      regular-weight: $regular-font-family,
+    ),
   )
 );
 $dark-theme: mat.define-theme(
@@ -150,6 +164,13 @@ $dark-theme: mat.define-theme(
       theme-type: dark,
       primary: $_primary,
       tertiary: $_tertiary,
+    ),
+    typography: (
+      plain-family: $regular-font-family,
+      brand-family: $heading-font-family,
+      bold-weight: $heading-font-family,
+      medium-weight: $heading-font-family,
+      regular-weight: $regular-font-family,
     ),
   )
 );
