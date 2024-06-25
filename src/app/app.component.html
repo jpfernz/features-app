@@ -1,1 +1,11 @@
-<app-buttons></app-buttons>
+<!-- <div [ngClass]="{ 'dark-theme': isDarkTheme | async }"> -->
+<div [class]="{ 'dark-theme': isDarkTheme | async }">
+  <div class="mat-app-background">
+    <mat-slide-toggle
+      [checked]="isDarkTheme | async"
+      (change)="toggleDarkTheme($event.checked)"
+      >Dark theme</mat-slide-toggle
+    >
+    <app-buttons></app-buttons>
+  </div>
+</div>
